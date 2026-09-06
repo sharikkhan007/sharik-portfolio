@@ -24,6 +24,7 @@ function App() {
       category: "React • UI/UX",
       description:
         "A modern personal portfolio focused on clean design, creativity and smooth user experience.",
+      github: "https://github.com/sharikkhan007/sharik-portfolio",
     },
     {
       number: "02",
@@ -391,9 +392,13 @@ function App() {
               </p>
 
               <button
-                onClick={() =>
-                  alert(`${project.title} project`)
-                }
+                onClick={() => {
+                  if (project.github) {
+                    window.open(project.github, "_blank");
+                  } else {
+                    alert(`${project.title} project`);
+                  }
+                }}
               >
                 EXPLORE PROJECT <span>→</span>
               </button>
