@@ -29,9 +29,10 @@ function App() {
     {
       number: "02",
       title: "Hostel Booking Website",
-      category: "React • Web Development",
+      category: "Next.js • Web Development",
       description:
-        "A responsive hostel booking platform concept with modern layouts and user-friendly design.",
+        "A modern hostel booking platform designed to provide a smooth and user-friendly accommodation booking experience.",
+      github: "https://github.com/sharikkhan007/hostel-booking-platform",
     },
     {
       number: "03",
@@ -394,9 +395,15 @@ function App() {
               <button
                 onClick={() => {
                   if (project.github) {
-                    window.open(project.github, "_blank");
+                    window.open(
+                      project.github,
+                      "_blank",
+                      "noopener,noreferrer"
+                    );
                   } else {
-                    alert(`${project.title} project`);
+                    alert(
+                      `${project.title} GitHub repository will be added soon!`
+                    );
                   }
                 }}
               >
