@@ -190,6 +190,42 @@ main {
 
 
 /* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.mobile-menu-button {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  padding: 0;
+
+  background: transparent;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+}
+
+.mobile-menu-button span {
+  width: 24px;
+  height: 2px;
+
+  display: block;
+
+  background: white;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* =========================================
    BUTTONS
 ========================================= */
 
@@ -2022,11 +2058,73 @@ main {
     padding: 0 20px;
   }
 
+
+  /* MOBILE HAMBURGER MENU */
+
+  .mobile-menu-button {
+    display: flex;
+
+    order: 2;
+  }
+
+
+  /* NAVIGATION MENU */
+
   .nav-links {
-    display: none;
+    position: absolute;
+
+    top: 70px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 20px;
+
+    background: rgba(7, 6, 6, 0.98);
+
+    border-bottom: 1px solid var(--border);
+
+    transform: translateY(-150%);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+      transform 0.35s ease,
+      opacity 0.35s ease;
+
+    z-index: 999;
+  }
+
+  .nav-links.mobile-open {
+    transform: translateY(0);
+
+    opacity: 1;
+
+    pointer-events: auto;
+  }
+
+  .nav-links button {
+    width: 100%;
+
+    padding: 15px;
+
+    text-align: center;
+
+    font-size: 1.1rem;
   }
 
   .connect-button {
+    order: 3;
+
     padding-left: 14px;
 
     font-size: 0.54rem;
