@@ -25,6 +25,7 @@ function App() {
       description:
         "A modern personal portfolio focused on clean design, creativity and smooth user experience.",
       github: "https://github.com/sharikkhan007/sharik-portfolio",
+      status: "LIVE",
     },
     {
       number: "02",
@@ -33,13 +34,15 @@ function App() {
       description:
         "A modern hostel booking platform designed to provide a smooth and user-friendly accommodation booking experience.",
       github: "https://github.com/sharikkhan007/hostel-booking-platform",
+      status: "IN DEVELOPMENT",
     },
     {
       number: "03",
       title: "Shopping Application",
       category: "Node.js • React",
       description:
-        "An e-commerce application concept featuring products, search and cart functionality.",
+        "An e-commerce application featuring products, search and cart functionality. Currently under development.",
+      status: "IN DEVELOPMENT",
     },
   ];
 
@@ -374,7 +377,12 @@ function App() {
             >
               <div className="project-top">
                 <span>{project.number}</span>
-                <span>↗</span>
+
+                <span>
+                  {project.status === "LIVE"
+                    ? "●"
+                    : "IN DEVELOPMENT"}
+                </span>
               </div>
 
               <div className="project-visual">
@@ -402,12 +410,15 @@ function App() {
                     );
                   } else {
                     alert(
-                      `${project.title} GitHub repository will be added soon!`
+                      `${project.title} is currently under development!`
                     );
                   }
                 }}
               >
-                EXPLORE PROJECT <span>→</span>
+                {project.github
+                  ? "EXPLORE PROJECT"
+                  : "IN DEVELOPMENT"}{" "}
+                <span>→</span>
               </button>
             </article>
           ))}
