@@ -174,7 +174,7 @@ button {
       #851729 40%,
       #25060b 100%
     );
-
+background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
