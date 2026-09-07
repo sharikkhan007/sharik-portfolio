@@ -71,7 +71,6 @@ main {
     var(--bg);
 }
 
-
 /* =========================================
    PREMIUM PAGE ANIMATION
 ========================================= */
@@ -93,7 +92,6 @@ main {
     transform: translateY(0);
   }
 }
-
 
 /* =========================================
    NAVBAR
@@ -188,7 +186,6 @@ main {
   width: 100%;
 }
 
-
 /* =========================================
    MOBILE MENU BUTTON
 ========================================= */
@@ -224,6 +221,13 @@ main {
     opacity 0.3s ease;
 }
 
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.mobile-menu {
+  display: none;
+}
 
 /* =========================================
    BUTTONS
@@ -304,7 +308,6 @@ main {
   transform: rotate(45deg);
 }
 
-
 /* =========================================
    HERO
 ========================================= */
@@ -319,7 +322,6 @@ main {
 
   isolation: isolate;
 }
-
 
 /* BACKGROUND TEXT */
 
@@ -350,7 +352,6 @@ main {
   pointer-events: none;
   user-select: none;
 }
-
 
 /* DECORATIVE CIRCLES */
 
@@ -392,7 +393,6 @@ main {
   }
 }
 
-
 /* HERO GRID */
 
 .hero-grid {
@@ -415,7 +415,6 @@ main {
 
   padding: 0 7%;
 }
-
 
 /* LEFT */
 
@@ -465,7 +464,6 @@ main {
   line-height: 1.75;
 }
 
-
 /* =========================================
    HERO IMAGE
 ========================================= */
@@ -485,7 +483,6 @@ main {
 
   z-index: 6;
 }
-
 
 /* GLOW */
 
@@ -523,7 +520,6 @@ main {
     opacity: 0.8;
   }
 }
-
 
 /* PROFILE IMAGE */
 
@@ -570,7 +566,6 @@ main {
     transform: translateY(-8px);
   }
 }
-
 
 /* =========================================
    RIGHT SIDE
@@ -634,7 +629,6 @@ main {
   line-height: 1.55;
 }
 
-
 /* LOCATION */
 
 .location {
@@ -687,7 +681,6 @@ main {
 .location span {
   color: var(--muted);
 }
-
 
 /* SCROLL */
 
@@ -758,7 +751,6 @@ main {
     transform: translateY(78px);
   }
 }
-
 
 /* =========================================
    STATS
@@ -885,7 +877,6 @@ main {
   animation: pulse 1.5s infinite;
 }
 
-
 /* =========================================
    GENERAL SECTIONS
 ========================================= */
@@ -925,7 +916,6 @@ main {
 .section h2 span {
   color: var(--red-bright);
 }
-
 
 /* =========================================
    ABOUT
@@ -969,7 +959,6 @@ main {
   line-height: 1.9;
 }
 
-
 /* =========================================
    SKILLS
 ========================================= */
@@ -1005,7 +994,6 @@ main {
 
   line-height: 1.8;
 }
-
 
 /* LEARNING CARD */
 
@@ -1255,7 +1243,6 @@ main {
   }
 }
 
-
 /* =========================================
    SKILL CARDS
 ========================================= */
@@ -1363,7 +1350,6 @@ main {
   box-shadow:
     0 0 12px rgba(255, 77, 97, 0.45);
 }
-
 
 /* =========================================
    PROJECTS
@@ -1607,7 +1593,6 @@ main {
   color: var(--red-bright);
 }
 
-
 /* =========================================
    CONTACT
 ========================================= */
@@ -1671,7 +1656,6 @@ main {
 
   line-height: 1.8;
 }
-
 
 /* =========================================
    CONTACT LINKS - GITHUB / EMAIL
@@ -1799,7 +1783,6 @@ main {
   word-break: break-word;
 }
 
-
 /* =========================================
    CONTACT MAIN BUTTON
 ========================================= */
@@ -1822,7 +1805,6 @@ main {
 
   white-space: nowrap;
 }
-
 
 /* =========================================
    CONTACT FORM
@@ -1933,7 +1915,6 @@ main {
     0 15px 35px rgba(214, 34, 60, 0.25);
 }
 
-
 /* FOOTER */
 
 .contact-footer {
@@ -1986,13 +1967,11 @@ main {
   transform: translateY(-2px);
 }
 
-
 /* =========================================
    TABLET
 ========================================= */
 
 @media (max-width: 1100px) {
-
   .hero-grid {
     grid-template-columns:
       minmax(0, 1fr)
@@ -2045,32 +2024,42 @@ main {
   }
 }
 
-
 /* =========================================
    MOBILE / SMALL TABLET
 ========================================= */
 
 @media (max-width: 850px) {
-
   .navbar {
     height: 70px;
 
     padding: 0 20px;
   }
 
-
-  /* MOBILE HAMBURGER MENU */
+  /* MOBILE HAMBURGER */
 
   .mobile-menu-button {
     display: flex;
 
     order: 2;
+
+    margin-left: auto;
   }
 
-
-  /* NAVIGATION MENU */
+  /* HIDE DESKTOP NAV ON MOBILE */
 
   .nav-links {
+    display: none;
+  }
+
+  /* HIDE DESKTOP CONNECT BUTTON ON MOBILE */
+
+  .connect-button {
+    display: none;
+  }
+
+  /* MOBILE MENU */
+
+  .mobile-menu {
     position: absolute;
 
     top: 70px;
@@ -2081,8 +2070,6 @@ main {
 
     flex-direction: column;
 
-    align-items: center;
-
     gap: 5px;
 
     padding: 20px;
@@ -2091,50 +2078,72 @@ main {
 
     border-bottom: 1px solid var(--border);
 
-    transform: translateY(-150%);
-
     opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-15px);
 
     pointer-events: none;
 
     transition:
-      transform 0.35s ease,
-      opacity 0.35s ease;
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
 
     z-index: 999;
   }
 
-  .nav-links.mobile-open {
-    transform: translateY(0);
-
+  .mobile-menu.open {
     opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
 
     pointer-events: auto;
   }
 
-  .nav-links button {
+  .mobile-menu button {
     width: 100%;
 
     padding: 15px;
 
-    text-align: center;
+    border: none;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-family: var(--serif);
 
     font-size: 1.1rem;
+
+    text-align: center;
+
+    transition:
+      color 0.25s ease,
+      background 0.25s ease;
   }
 
-  .connect-button {
-    order: 3;
+  .mobile-menu button:hover {
+    color: var(--red-bright);
 
-    padding-left: 14px;
-
-    font-size: 0.54rem;
+    background: rgba(214, 34, 60, 0.04);
   }
 
-  .connect-button span {
-    width: 32px;
-    height: 32px;
+  /* HAMBURGER -> X */
+
+  .mobile-menu-button.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
   }
 
+  .mobile-menu-button.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-button.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 
   /* HERO */
 
@@ -2199,7 +2208,6 @@ main {
     display: none;
   }
 
-
   /* STATS */
 
   .stats {
@@ -2219,7 +2227,6 @@ main {
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
-
 
   /* SECTIONS */
 
@@ -2262,7 +2269,6 @@ main {
     height: 210px;
   }
 
-
   /* CONTACT */
 
   .contact {
@@ -2292,25 +2298,13 @@ main {
   }
 }
 
-
 /* =========================================
    SMALL MOBILE
 ========================================= */
 
 @media (max-width: 500px) {
-
   .logo {
     font-size: 1.4rem;
-  }
-
-  .connect-button {
-    gap: 8px;
-
-    padding-left: 11px;
-
-    font-size: 0.48rem;
-
-    letter-spacing: 0.5px;
   }
 
   .hero-grid {
@@ -2398,7 +2392,6 @@ main {
     font-size: 1.5rem;
   }
 
-
   /* CONTACT */
 
   .contact {
@@ -2424,13 +2417,11 @@ main {
   }
 }
 
-
 /* =========================================
    ACCESSIBILITY
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {

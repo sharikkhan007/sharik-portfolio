@@ -1,7 +1,10 @@
+import { useState } from "react";
 import "./App.css";
 import heroImage from "./assets/sharik-profile.PNG";
 
 function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",
@@ -66,6 +69,7 @@ function App() {
           Sharik <span>Khan</span>
         </button>
 
+        {/* DESKTOP NAVIGATION */}
         <nav className="nav-links">
           <button onClick={() => scrollToSection("about")}>
             About
@@ -91,6 +95,64 @@ function App() {
           LET&apos;S CONNECT
           <span>↗</span>
         </button>
+
+        {/* MOBILE THREE-LINE MENU BUTTON */}
+        <button
+          className={`mobile-menu-button ${
+            mobileMenuOpen ? "active" : ""
+          }`}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={mobileMenuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* MOBILE MENU */}
+        <nav
+          className={`mobile-menu ${
+            mobileMenuOpen ? "open" : ""
+          }`}
+          aria-hidden={!mobileMenuOpen}
+        >
+          <button
+            onClick={() => {
+              scrollToSection("about");
+              setMobileMenuOpen(false);
+            }}
+          >
+            About
+          </button>
+
+          <button
+            onClick={() => {
+              scrollToSection("skills");
+              setMobileMenuOpen(false);
+            }}
+          >
+            Skills
+          </button>
+
+          <button
+            onClick={() => {
+              scrollToSection("projects");
+              setMobileMenuOpen(false);
+            }}
+          >
+            Projects
+          </button>
+
+          <button
+            onClick={() => {
+              scrollToSection("contact");
+              setMobileMenuOpen(false);
+            }}
+          >
+            Connect
+          </button>
+        </nav>
       </header>
 
       {/* HERO */}
@@ -559,4 +621,5 @@ ${message}`;
     </main>
   );
 }
+
 export default App;
