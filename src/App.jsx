@@ -44,6 +44,14 @@ function App() {
         "An e-commerce application featuring products, search and cart functionality. Currently under development.",
       status: "IN DEVELOPMENT",
     },
+    {
+      number: "04",
+      title: "Agentic AI Business",
+      category: "Agentic AI • Automation • Business",
+      description:
+        "A future AI-powered business ecosystem designed to automate business operations using intelligent AI agents for content creation, marketing, customer support, research and business management.",
+      status: "FUTURE PROJECT",
+    },
   ];
 
   return (
@@ -191,7 +199,7 @@ function App() {
         </div>
 
         <div className="stat">
-          <h3>03+</h3>
+          <h3>04+</h3>
           <p>PROJECTS</p>
         </div>
 
@@ -381,7 +389,9 @@ function App() {
                 <span>
                   {project.status === "LIVE"
                     ? "●"
-                    : "IN DEVELOPMENT"}
+                    : project.status === "IN DEVELOPMENT"
+                    ? "IN DEVELOPMENT"
+                    : "FUTURE PROJECT"}
                 </span>
               </div>
 
@@ -410,13 +420,19 @@ function App() {
                     );
                   } else {
                     alert(
-                      `${project.title} is currently under development!`
+                      `${project.title} is ${
+                        project.status === "FUTURE PROJECT"
+                          ? "planned as a future project"
+                          : "currently under development"
+                      }!`
                     );
                   }
                 }}
               >
                 {project.github
                   ? "EXPLORE PROJECT"
+                  : project.status === "FUTURE PROJECT"
+                  ? "FUTURE PROJECT"
                   : "IN DEVELOPMENT"}{" "}
                 <span>→</span>
               </button>
